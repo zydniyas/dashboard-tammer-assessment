@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Header } from "../components";
 
 function Employees() {
   return (
-    <div>Employees</div>
-  )
+    <div>
+      <Header category="page" title="Employees" />
+    </div>
+  );
 }
 
-export default Employees
+export default Employees;

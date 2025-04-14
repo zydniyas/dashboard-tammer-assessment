@@ -1,7 +1,12 @@
 import React from "react";
+import Header from "../components/Header";
 
 function Calendar() {
-  return <div>Calendar</div>;
+  return (
+    <div>
+      <Header category="page" title="Calendar" />
+    </div>
+  );
 }
 
 export default Calendar;

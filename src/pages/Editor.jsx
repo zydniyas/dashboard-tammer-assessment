@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Header } from "../components";
 
 function Editor() {
   return (
-    <div>Editor</div>
-  )
+    <div>
+      <Header category="page" title="Editor" />
+    </div>
+  );
 }
 
-export default Editor
+export default Editor;

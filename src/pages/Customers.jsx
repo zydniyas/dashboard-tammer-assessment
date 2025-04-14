@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Header from "../components/Header";
 
 function Customers() {
   return (
-    <div>Customers</div>
-  )
+    <div>
+      <Header category="page" title="Customers" />
+    </div>
+  );
 }
 
-export default Customers
+export default Customers;
