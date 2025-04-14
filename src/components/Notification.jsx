@@ -2,7 +2,6 @@ import React from "react";
 import Button from "./Button";
 import { MdOutlineCancel } from "react-icons/md";
 import { chatData } from "../data/dummy";
-
 import { useStateContext } from "../contexts/ContextProvider";
 
 function Notification() {
