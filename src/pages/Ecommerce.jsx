@@ -29,7 +29,7 @@ function Ecommerce() {
 
   return (
     <>
-      <div className="mt-10">
+      <div className="mt-24 lg:mt-10">
         <div className="flex flex-wrap lg:flex-nowrap justify-center ">
           <div className="bg-gray-300 dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
             <div className="flex justify-between items-center">
@@ -55,7 +55,7 @@ function Ecommerce() {
               />
             </div>
           </div>
-          <div className="flex m-3 flex-wrap lg:flex-nowrap justify-start gap-1 items-center">
+          <div className="flex m-3 flex-wrap lg:flex-nowrap justify-center lg:justify-start gap-1 items-center">
             {earningData.map((item) => (
               <div
                 key={item.title}
