@@ -1,33 +1,24 @@
 import React from "react";
-import { Header } from "../components";
 import {
-  ScheduleComponent,
-  Day,
-  Week,
-  WorkWeek,
-  Month,
-  Agenda,
+  HtmlEditor,
+  Image,
   Inject,
-  Resize,
-  DragAndDrop,
-} from "@syncfusion/ej2-react-schedule";
-// import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
-
-import { scheduleData } from "../data/dummy";
+  Link,
+  QuickToolbar,
+  RichTextEditorComponent,
+  Toolbar,
+} from "@syncfusion/ej2-react-richtexteditor";
+import { Header } from "../components";
+import { EditorData } from "../data/dummy";
 
 function Editor() {
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-      <Header category="Page" title="Editor" />
-      <ScheduleComponent
-        height="650px"
-        selectedDate={new Date(2021, 0, 10)}
-        eventSettings={{ dataSource: scheduleData }}
-      >
-        <Inject
-          services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]}
-        />
-      </ScheduleComponent>
+      <Header category="App" title="Editor" />
+      <RichTextEditorComponent>
+        {/* <EditorData /> */}
+        <Inject services={[HtmlEditor, Toolbar, Image, Link, QuickToolbar]} />
+      </RichTextEditorComponent>
     </div>
   );
 }
