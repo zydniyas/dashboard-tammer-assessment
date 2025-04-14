@@ -19,8 +19,32 @@ import Header from "../components/Header";
 
 function Orders() {
   return (
-    <div>
+    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       <Header category="page" title="Orders" />
+      <GridComponent
+        id="gridcomp"
+        dataSource={ordersData}
+        allowPaging
+        allowSorting
+      >
+        <ColumnsDirective>
+          {ordersGrid.map((item, i) => (
+            <ColumnDirective key={i} {...item} />
+          ))}
+        </ColumnsDirective>
+        <Inject
+          services={[
+            Resize,
+            Sort,
+            ContextMenu,
+            Filter,
+            Page,
+            ExcelExport,
+            Edit,
+            PdfExport,
+          ]}
+        />
+      </GridComponent>
     </div>
   );
 }
