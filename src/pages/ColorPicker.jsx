@@ -4,7 +4,7 @@ import Header from "../components/Header";
 function ColorPicker() {
   return (
     <div>
-      <Header category="page" title="ColorPicker" />
+      <Header category="Page" title="ColorPicker" />
     </div>
   );
 }

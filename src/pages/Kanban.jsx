@@ -4,7 +4,7 @@ import { Header } from "../components";
 function Kanban() {
   return (
     <div>
-      <Header category="page" title="Kanban" />
+      <Header category="Page" title="Kanban" />
     </div>
   );
 }
