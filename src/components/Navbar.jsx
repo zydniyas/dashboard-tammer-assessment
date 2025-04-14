@@ -40,6 +40,7 @@ function Navbar() {
     screenSize,
     setScreenSize,
     currentColor,
+    handleClose,
   } = useStateContext();
 
   useEffect(() => {

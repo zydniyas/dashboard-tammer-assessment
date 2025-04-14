@@ -9,9 +9,11 @@ function Button({
   text,
   borderRadius,
   width,
+  onClick,
 }) {
   return (
     <button
+      onClick={onClick}
       type="button"
       style={{ backgroundColor: bgColor, color, borderRadius }}
       className={` text-${size} p-3 w-${width} hover:drop-shadow-xl hover:bg-${bgHoverColor}`}
