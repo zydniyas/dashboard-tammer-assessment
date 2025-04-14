@@ -10,14 +10,19 @@ import { useStateContext } from './contexts/ContextProvider';
 
 
 function App() {
-    const { activeMenu } = useStateContext();
+    const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode, setCurrentColor, setCurrentMode } = useStateContext();
+    useEffect(() => {
+        setCurrentColor(localStorage.getItem("colorMode"));
+        setCurrentMode(localStorage.getItem("themeMode"));
+
+    }, []);
     return (
-        <div>
+        <div className={`${currentMode === 'Dark' ? 'dark' : ''} `}>
             <BrowserRouter>
                 <div className='flex relative dark:bg-main-dark-bg'>
                     <div className='fixed right-4 bottom-4 ' style={{ zIndex: '1000' }}>
                         <TooltipComponent content="Settings" position='top' >
-                            <button type='button' className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{ backgroundColor: 'blue', borderRadius: '50%' }}>
+                            <button onClick={() => setThemeSettings(!themeSettings)} type='button' className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{ backgroundColor: currentColor, borderRadius: '50%' }}>
                                 <FiSettings />
                             </button>
                         </TooltipComponent>
@@ -36,6 +41,8 @@ function App() {
                             <Navbar />
                         </div>
                         <div>
+                            {themeSettings && <ThemeSettings />}
+
                             <Routes>
                                 {/* dashboard */}
                                 <Route path='/' element={<Ecommerce />} />

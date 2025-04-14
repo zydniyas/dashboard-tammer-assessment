@@ -15,7 +15,8 @@ function Sidebar() {
       setActiveMenu(false);
     }
   };
-  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, currentColor } =
+    useStateContext();
 
   const activeLink =
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2";
@@ -51,6 +52,9 @@ function Sidebar() {
                 </p>
                 {item.links.map((link, i) => (
                   <NavLink
+                    style={({ isActive }) => ({
+                      backgroundColor: isActive ? currentColor : "",
+                    })}
                     key={i}
                     onClick={() => handleCloseSideBar()}
                     to={`/${link.name}`}

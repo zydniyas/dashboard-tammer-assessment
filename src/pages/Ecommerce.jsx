@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { GoDotFill } from "react-icons/go";
 import { IoIosMore } from "react-icons/io";
@@ -18,6 +18,8 @@ import { useStateContext } from "../contexts/ContextProvider";
 import product9 from "../data/product9.jpg";
 
 function Ecommerce() {
+  const { currentColor } = useStateContext();
+
   return (
     <>
       <div className="mt-24">
@@ -30,7 +32,7 @@ function Ecommerce() {
               </div>
               <button
                 type="button"
-                style={{ backgroundColor: "blue" }}
+                style={{ backgroundColor: currentColor }}
                 className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full  p-4"
               >
                 <BsCurrencyDollar />
@@ -40,35 +42,38 @@ function Ecommerce() {
             <div className="mt-6">
               <Button
                 color="white"
-                bgColor={"blue"}
+                bgColor={currentColor}
                 text="Download"
                 borderRadius="10px"
               />
             </div>
           </div>
-        </div>
-        <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
-          {earningData.map((item) => (
-            <div
-              key={item.title}
-              className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl "
-            >
-              <button
-                type="button"
-                style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-                className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl"
+          <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
+            {earningData.map((item) => (
+              <div
+                key={item.title}
+                className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl "
               >
-                {item.icon}
-              </button>
-              <p className="mt-3">
-                <span className="text-lg font-semibold">{item.amount}</span>
-                <span className={`text-sm text-${item.pcColor} ml-2`}>
-                  {item.percentage}
-                </span>
-              </p>
-              <p className="text-sm text-gray-400  mt-1">{item.title}</p>
-            </div>
-          ))}
+                <button
+                  type="button"
+                  style={{
+                    color: item.iconColor,
+                    backgroundColor: item.iconBg,
+                  }}
+                  className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl"
+                >
+                  {item.icon}
+                </button>
+                <p className="mt-3">
+                  <span className="text-lg font-semibold">{item.amount}</span>
+                  <span className={`text-sm text-${item.pcColor} ml-2`}>
+                    {item.percentage}
+                  </span>
+                </p>
+                <p className="text-sm text-gray-400  mt-1">{item.title}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <div className="flex gap-10 flex-wrap justify-center">
@@ -109,19 +114,19 @@ function Ecommerce() {
 
               <div className="mt-5">
                 <SparkLine
-                  currentColor={"blue"}
+                  currentColor={currentColor}
                   id="line-sparkLine"
                   type="Line"
                   height="80px"
                   width="250px"
                   data={SparklineAreaData}
-                  color={"blue"}
+                  color={currentColor}
                 />
               </div>
               <div className="mt-10">
                 <Button
                   color="white"
-                  bgColor={"blue"}
+                  bgColor={currentColor}
                   text="Download Report"
                   borderRadius="10px"
                 />
